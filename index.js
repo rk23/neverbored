@@ -1,6 +1,7 @@
 var express     = require('express'),
     bodyParser  = require('body-parser'),
     authCtrl    = require('./controllers/auth'),
+    homeCtrl    = require('./controllers/home'),
     session     = require('express-session'),
     app         = express();
 
@@ -24,5 +25,6 @@ app.get('/', function(req, res){
 });
 
 app.use('/auth', authCtrl);
+app.use('/home', homeCtrl);
 
 app.listen(3000);

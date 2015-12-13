@@ -1,3 +1,44 @@
 body {
     font-family: Helvetica;
+    background-color: rgba(0,0,0,.1);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.status-bar{
+    height: 60px;
+    background-color: white;
+    padding: 5px;
+}
+.main-feed{
+    border-right: 1px solid lightgrey;
+}
+
+.main-nav {
+    padding-left: 4%;
+    border-right: 1px solid lightgrey;
+}
+
+.main-nav-list {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.center-nav-vert {
+    padding: 15px;
+    display: inline-block;
+}
+
+.craigslist-scraper {
+    background-color: white;
+    padding: 5px;
+    margin-right: 4%;
+}
+
+#search{
+    width: 200%;
 }

@@ -6,13 +6,11 @@ var express = require('express'),
     router  = express.Router();
 
 router.post('/register', function(req, res) {
-    console.log('posted');
     req.session.currentUser = true;
     res.redirect('/');
 });
 
 router.post('/login', function(req, res){
-    console.log('logged in');
     req.session.currentUser = true;
     res.redirect('/');
 });
@@ -20,6 +18,6 @@ router.post('/login', function(req, res){
 router.get('/logout', function(req, res){
     req.session.currentUser = false;
     res.redirect('/');
-})
+});
 
 module.exports = router;
