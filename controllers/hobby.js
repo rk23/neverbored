@@ -1,7 +1,7 @@
 var express = require('express'),
     router  = express.Router();
 
-router.get('/', function(req, res){
+router.get('/all', function(req, res){
     res.render('hobby/index');
 });
 

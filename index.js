@@ -3,7 +3,9 @@ var express     = require('express'),
     authCtrl    = require('./controllers/auth'),
     homeCtrl    = require('./controllers/home'),
     dataCtrl    = require('./controllers/data'),
-    hobbyCtrl    = require('./controllers/hobby'),
+    hobbyCtrl   = require('./controllers/hobby'),
+    equipmentCtrl   = require('./controllers/equipment'),
+    memberCtrl   = require('./controllers/member'),
     session     = require('express-session'),
     request     = require('request'),
     $           = require('Cheerio'),
@@ -28,5 +30,11 @@ app.use('/', homeCtrl);
 app.use('/auth', authCtrl);
 app.use('/data', dataCtrl);
 app.use('/h', hobbyCtrl);
+app.use('/e', equipmentCtrl);
+app.use('/m', memberCtrl);
+
+app.get('*', function(req, res){
+    res.render('404');
+});
 
 app.listen(3000);
