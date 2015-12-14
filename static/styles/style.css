@@ -13,6 +13,8 @@ footer {
 
 hr {
     border-top: 1px solid lightgrey;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 ul {
@@ -72,6 +74,8 @@ ul {
     margin-left: 15px;
     height: 250px;
     overflow: scroll;
+    width: 90%;
+    font-size: 12px;
 }
 .weather-scraper {
     background-color: white;

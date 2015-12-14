@@ -5,7 +5,9 @@ var express     = require('express'),
     dataCtrl    = require('./controllers/data'),
     hobbyCtrl   = require('./controllers/hobby'),
     equipmentCtrl   = require('./controllers/equipment'),
-    memberCtrl   = require('./controllers/member'),
+    memberCtrl  = require('./controllers/member'),
+    feedCtrl    = require('./controllers/feed'),
+    searchCtrl    = require('./controllers/search'),
     session     = require('express-session'),
     request     = require('request'),
     $           = require('Cheerio'),
@@ -32,6 +34,8 @@ app.use('/data', dataCtrl);
 app.use('/h', hobbyCtrl);
 app.use('/e', equipmentCtrl);
 app.use('/m', memberCtrl);
+app.use('/f', feedCtrl);
+app.use('/search', searchCtrl);
 
 app.get('*', function(req, res){
     res.render('404');

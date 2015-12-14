@@ -22,7 +22,9 @@
             </button>
             <a class="navbar-brand" href="/">Never Bored</a>
             <div class="center-nav-vert">
-                <input type="text" id="search" name="search">
+                <form method="get" action="/search">
+                    <input type="text" id="search" name="search">
+                </form>
             </div>
         </div>
 
@@ -30,7 +32,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/">Home</a></li>
                 <li><a href="/">My Hobbies</a></li>
-                <li><a href="/e">My Equipment</a></li>
+                <li><a href="/e/all">My Equipment</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
             </ul>
         </div>
