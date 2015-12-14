@@ -3,11 +3,13 @@ body {
     background-color: rgba(0,0,0,.1);
 }
 
-/*footer {*/
-    /*position: absolute;*/
-    /*bottom: 0;*/
-    /*width: 100%;*/
-/*}*/
+footer {
+    margin-top: 20px;
+    background-color: #1D2F3D;
+    height: 100px;
+    color: white;
+    padding: 20px;
+}
 
 hr {
     border-top: 1px solid lightgrey;
@@ -16,6 +18,10 @@ hr {
 ul {
     list-style: none;
     padding-left: 0;
+}
+
+.row {
+    margin-right: 0;
 }
 
 .dashboard-article {
@@ -28,7 +34,7 @@ ul {
 .navbar {
     background-color: #1D2F3D;
     border-color: #1D2F3D;
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .status-bar{
@@ -123,6 +129,15 @@ ul {
     width: 75%;
 }
 
+.hobby-equipment {
+    height: 100%;
+    overflow: scroll;
+}
+
 #search{
     width: 200%;
+}
+
+#feed-follow {
+    margin-top: 20px;
 }

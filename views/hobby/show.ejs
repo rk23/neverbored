@@ -21,8 +21,31 @@
                         <li>Solo: <%=fullHobby.solo%></li>
                     </ul>
                 </div>
-                <div class="col-md-5 hobby-stats">
-                    <p>Equipment</p>
+                <div class="col-md-5 hobby-equipment">
+                    <table class="table table-striped" id="hobby-equipment">
+                        <tr>
+                            <th>Name</th>
+                            <th>Cost</th>
+                        </tr>
+                        <% var i = 1, total = 0; equipment.forEach(function(equipment){ total += equipment.price%>
+                        <tr>
+                            <td>
+                                <a href="#"><%=equipment.name%></a>
+                            </td>
+                            <td>
+                                $<%=equipment.price%>
+                            </td>
+                        </tr>
+                        <%i++;})%>
+                        <tr>
+                            <td>
+                                <strong>Total</strong>
+                            </td>
+                            <td>
+                                $<%=total%>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
@@ -59,7 +82,15 @@
         </article>
     </div>
     <div class="col-md-3 indiv-hobby-feed">
-        <h3>Feed</h3>
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Feed</h3>
+            </div>
+            <div class="col-md-4">
+                <button name="feed-follow" id="feed-follow" value="/">Follow</button>
+            </div>
+        </div>
+
         <p>asfd</p>
         <hr>
         <p>asdf</p>
