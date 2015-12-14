@@ -9,6 +9,19 @@ footer {
     width: 100%;
 }
 
+article {
+    background-color: white;
+    text-align: left;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.navbar {
+    background-color: #1D2F3D;
+    border-color: #1D2F3D;
+    border-radius: 0px;
+}
+
 .status-bar{
     height: 60px;
     background-color: white;
@@ -25,7 +38,7 @@ footer {
 
 .main-nav-list {
     list-style: none;
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .center-nav-vert {
@@ -33,10 +46,30 @@ footer {
     display: inline-block;
 }
 
+.main-notif {
+
+}
+
 .craigslist-scraper {
     background-color: white;
-    padding: 5px;
+    padding: 10px;
     margin-right: 4%;
+    margin-left: 15px;
+    height: 250px;
+    overflow: scroll;
+}
+.weather-scraper {
+    background-color: white;
+    padding: 10px;
+    margin-right: 4%;
+    margin-left: 15px;
+    height: 250px;
+    overflow: scroll;
+}
+
+#hobby-list {
+    margin: 0 auto;
+    width: 75%;
 }
 
 #search{

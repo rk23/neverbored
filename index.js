@@ -2,7 +2,11 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     authCtrl    = require('./controllers/auth'),
     homeCtrl    = require('./controllers/home'),
+    dataCtrl    = require('./controllers/data'),
+    hobbyCtrl    = require('./controllers/hobby'),
     session     = require('express-session'),
+    request     = require('request'),
+    $           = require('Cheerio'),
     app         = express();
 
 app.set('view engine', 'ejs');
@@ -20,11 +24,9 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get('/', function(req, res){
-    res.render('index');
-});
-
+app.use('/', homeCtrl);
 app.use('/auth', authCtrl);
-app.use('/home', homeCtrl);
+app.use('/data', dataCtrl);
+app.use('/h', hobbyCtrl);
 
 app.listen(3000);

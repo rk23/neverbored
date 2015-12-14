@@ -9,6 +9,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/articles">Articles</a></li>
             <li><a href="/articles/recommend">Random article</a></li>
+            <li><a href="/equipment">My Equipment</a></li>
             <li><a href="/members">Members</a></li>
             <li><a href="/members/recommend">Meet</a></li>
         </ul>
@@ -17,16 +18,31 @@
         <div class="status-bar">
             <h4>Update status</h4>
         </div>
+        <hr>
         <div class="feed">
-
+            <% articles.forEach(function(article, i) {%>
+                <article>
+                    <h3><%=article.title%></h3>
+                    <p><%=article.body%></p>
+                </article>
+                <hr>
+            <%})%>
         </div>
     </section>
     <section class="col-md-4 main-notif">
-        <div class="craigslist-scraper">
-            <h4><u>Craigslist Scraper</u></h4>
-            <div class="cl-links">
-
-            </div>
+        <div class="row">
+            <section class="craigslist-scraper col-md-10" id="craigslist-scraper">
+                <h4><u>Craigslist Scraper</u></h4>
+                <button type="button" id="refreshCL">Refresh</button>
+                <div id="cl-links">
+                </div>
+            </section>
+        </div>
+        <hr>
+        <div class="row">
+            <section class="weather-scraper col-md-10" id="weather-scraper">
+                <h4><u>Weather Scraper</u></h4>
+            </section>
         </div>
     </section>
 </div>
