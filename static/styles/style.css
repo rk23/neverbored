@@ -3,6 +3,10 @@ body {
     background-color: rgba(0,0,0,.1);
 }
 
+.home-page {
+    background-image: url(https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/c5d9f257d55b9665a5d702528d6f1a6c.jpeg);
+}
+
 footer {
     margin-top: 20px;
     background-color: #1D2F3D;
@@ -84,6 +88,8 @@ ul {
     margin-left: 15px;
     height: 250px;
     overflow: scroll;
+    width: 90%;
+    font-size: 12px;
 }
 
 .hobby-article{
