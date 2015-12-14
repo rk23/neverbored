@@ -3,13 +3,22 @@ body {
     background-color: rgba(0,0,0,.1);
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+/*footer {*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+/*}*/
+
+hr {
+    border-top: 1px solid lightgrey;
 }
 
-article {
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.dashboard-article {
     background-color: white;
     text-align: left;
     padding: 15px;
@@ -65,6 +74,48 @@ article {
     margin-left: 15px;
     height: 250px;
     overflow: scroll;
+}
+
+.hobby-article{
+    margin-left: 4%;
+    border-right: 1px solid lightgrey;
+    overflow: scroll;
+}
+
+.hobby-header{
+    height: 200px;
+    overflow: scroll;
+}
+
+.indiv-hobby-feed {
+    margin-right: 4%;
+}
+
+.header-overlay {
+    position: absolute;
+    padding-left: 15px;
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    width: 80%;
+}
+
+.hobby-quote {
+    border-right: 1px solid lightgrey;
+    height: 100%;
+}
+
+.hobby-stats {
+    height: 120px;
+    border-bottom: 1px solid lightgrey;
+}
+
+.hobby-stats-short {
+    border-right: 1px solid lightgrey;
+    height: 100%;
+}
+
+.hobby-text-article {
+    margin-top: 5px;
 }
 
 #hobby-list {
