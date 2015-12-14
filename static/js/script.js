@@ -17,8 +17,8 @@ $(function(){
                         aTag = $('<a/>', {
                             href: 'https://seattle.craigslist.org/' + url,
                             html: data.headlines[i]
-                        })
-                    pTag.append(aTag).addClass('link');
+                        });
+                    pTag.append(aTag ).append(' ' + data.price[i]).addClass('link');
                     $('#cl-links').append(pTag);
                 })
             }
