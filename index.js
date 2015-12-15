@@ -2,7 +2,9 @@ var express     = require('express'),
     bodyParser  = require('body-parser'),
     authCtrl    = require('./controllers/auth'),
     homeCtrl    = require('./controllers/home'),
-    dataCtrl    = require('./controllers/data'),
+    craigslist  = require('./scrapers/craigslist'),
+    snowboarder  = require('./scrapers/snowboarder'),
+    rss          = require('./scrapers/rssfeeds'),
     hobbyCtrl   = require('./controllers/hobby'),
     equipmentCtrl   = require('./controllers/equipment'),
     memberCtrl  = require('./controllers/member'),
@@ -10,7 +12,6 @@ var express     = require('express'),
     searchCtrl    = require('./controllers/search'),
     session     = require('express-session'),
     request     = require('request'),
-    $           = require('Cheerio'),
     app         = express();
 
 app.set('view engine', 'ejs');
@@ -30,7 +31,9 @@ app.use(function(req, res, next){
 
 app.use('/', homeCtrl);
 app.use('/auth', authCtrl);
-app.use('/data', dataCtrl);
+app.use('/craigslist', craigslist);
+app.use('/snowboarder', snowboarder);
+app.use('/rss', rss);
 app.use('/h', hobbyCtrl);
 app.use('/e', equipmentCtrl);
 app.use('/m', memberCtrl);

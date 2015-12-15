@@ -6,7 +6,7 @@ $(function(){
         e.preventDefault();
 
         $.ajax({
-            url: '/data',
+            url: '/craigslist',
             dataType: 'json',
             success: function(data){
                 $('#cl-links').empty();
@@ -20,6 +20,36 @@ $(function(){
                         });
                     pTag.append(aTag ).append(' ' + data.price[i]).addClass('link');
                     $('#cl-links').append(pTag);
+                })
+            }
+        })
+    });
+
+    $('#refreshFeed').on('click', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            url: '/rss',
+            dataType: 'json',
+            success: function(data){
+                $('#feed').empty();
+                $.each(data, function(i, website){
+                    for (var j = 0; j < website.links.length; j++){
+                        var article = $('<article>'),
+                            pTag = $('<p/>', {
+                                html: website.dates[j] + ' '
+                            }),
+                            aTag = $('<a/>', {
+                                href: website.links[j],
+                                html: website.headlines[j]
+                            }),
+                            br = $('<br/>'),
+                            img = $('<img/>', {
+                                src: website.imgLinks[j]
+                        });
+                        article.append(pTag.append(br).append(aTag).append(img)).addClass('feed-article');
+                        $('#feed').append(article);
+                    }
                 })
             }
         })

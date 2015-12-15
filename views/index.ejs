@@ -1,9 +1,10 @@
 <%if (!currentUser){ %>
 <%include partials/home-header.ejs%>
-<div class="row" style="background-image: url(https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/c5d9f257d55b9665a5d702528d6f1a6c.jpeg);" >
+<div class="home-page">
+<div class="row" >
     <div class="col-md-6 col-md-offset-1">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 sign-up">
         <h1>Sign Up</h1>
         <p>It's free and always will be</p>
         <div class="form-container">
@@ -38,6 +39,7 @@
             </form>
         </div>
     </div>
+</div>
 </div>
 <%} else {%>
 <%include partials/header.ejs%>

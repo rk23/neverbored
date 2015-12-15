@@ -4,7 +4,16 @@ body {
 }
 
 .home-page {
-    background-image: url(https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/c5d9f257d55b9665a5d702528d6f1a6c.jpeg);
+    height: 100vh;
+    background-image: url(https://i.ytimg.com/vi/_wC0WT4DPBU/maxresdefault.jpg);
+    background-size: cover;
+    margin-top: -20px;
+}
+.sign-up{
+    background-color: rgba(255,255,255,.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 40px;
 }
 
 footer {
@@ -30,6 +39,29 @@ ul {
     margin-right: 0;
 }
 
+.feed {
+    text-align: left;
+}
+
+.feed-article {
+    background-color: white;
+    text-align: left;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 2px;
+}
+
+.feed-article a {
+    color: black;
+    font-size: 20px;
+}
+
+.feed-article img {
+    width: 100%;
+}
+
+
+/*TODO:Delete this*/
 .dashboard-article {
     background-color: white;
     text-align: left;

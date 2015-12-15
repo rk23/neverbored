@@ -20,14 +20,8 @@
             <!--<h4>Update status</h4>-->
         <!--</div>-->
         <!--<hr>-->
-        <div class="feed">
-            <% articles.forEach(function(article, i) {%>
-                <article class="dashboard-article">
-                    <h3><%=article.title%></h3>
-                    <p><%=article.body%></p>
-                </article>
-                <hr>
-            <%})%>
+        <button type="button" id="refreshFeed">Refresh</button>
+        <div class="feed" id="feed">
         </div>
     </section>
     <section class="col-md-4 main-notif">
