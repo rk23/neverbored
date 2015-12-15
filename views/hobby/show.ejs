@@ -6,13 +6,13 @@
                 <h1><%=fullHobby.name%></h1>
                 <p><%=fullHobby.shortDesc%></p>
             </div>
-            <img src="<%=fullHobby.link%>" width="100%">
+            <img src="<%=fullHobby.imglink%>" width="100%">
         </div>
         <hr>
         <div class="row">
             <div class="col-md-12 hobby-stats">
                 <div class="col-md-5 hobby-quote">
-                    <p><%=fullHobby.quotes%></p>
+                    <p><%=fullHobby.quote%></p>
                 </div>
                 <div class="col-md-2 hobby-stats-short">
                     <ul>
@@ -87,7 +87,11 @@
                 <h3>Feed</h3>
             </div>
             <div class="col-md-4">
-                <button name="feed-follow" id="feed-follow" value="/">Follow</button>
+                <form method="post" action="/h/<%=fullHobby.name%>/follow">
+                    <input type="hidden" value="<%=fullHobby.id%>" name="followID">
+                    <button type="submit" name="followName" id="feed-follow"
+                            value="<%=fullHobby.name%>">Follow</button>
+                </form>
             </div>
         </div>
 

@@ -1,6 +1,3 @@
-/**
- * Created by ReedK on 12/12/15.
- */
 var express = require('express'),
     bcrypt  = require('bcrypt'),
     db      = require('../models'),
@@ -8,7 +5,7 @@ var express = require('express'),
 
 router.post('/register', function(req, res) {
 
-    newUser = {
+    var newUser = {
         firstName: req.body.inputFirstName,
         lastName: req.body.inputLastName,
         email: req.body.inputEmail,
@@ -17,7 +14,7 @@ router.post('/register', function(req, res) {
     };
 
     if(newUser.password != newUser.password2) {
-        //req.flash('danger', 'Passwords much match');
+        req.flash('danger', 'Passwords much match');
         res.redirect('/');
     } else {
         db.member.findOrCreate({
@@ -32,7 +29,7 @@ router.post('/register', function(req, res) {
             }
         }).spread(function (user, created) {
             if(!created){
-                //req.flash('danger', 'Email already registered');
+                req.flash('danger', 'Email already registered');
                 res.redirect('/');
             } else {
                 req.session.currentUser = user;
@@ -51,12 +48,13 @@ router.post('/login', function(req, res){
         where: {
             email: email
         }
-    }).then(function(user) {
-        bcrypt.compare(password, user.password, function(err, result) {
+    }).then(function(member) {
+        bcrypt.compare(password, member.password, function(err, result) {
             if (result){
-                req.session.currentUser = user;
-                res.render('/');
+                req.session.currentUser = member;
+                res.redirect('/');
             } else {
+                req.flash('danger', 'Passwords much match');
                 res.redirect('/');
             }
         });

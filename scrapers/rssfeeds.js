@@ -5,8 +5,8 @@ var express = require('express'),
     router  = express.Router();
 
 router.get('/', function(req, res){
-
-    var links = [ 'http://www.divebuddy.com/rss/blogs_rss.aspx', 'https://www.reddit.com/r/snowboarding/.rss', 'https://www.reddit.com/r/freeflight/.rss'];
+    //'http://www.divebuddy.com/rss/blogs_rss.aspx',
+    var links = [ 'http://imgur.com/r/snowboarding/rss', 'http://imgur.com/r/paragliding/rss', 'http://imgur.com/r/diving/rss', 'http://imgur.com/r/backpacking/rss'];
 
 
      var linksAndHeadlines = {};
@@ -19,6 +19,7 @@ router.get('/', function(req, res){
 
         parser.parseURL(url, function(err, parsed) {
             parsed.feed.entries.forEach(function(entry, i) {
+                console.log(entry);
                 linkArray.push(entry.link);
                 textArray.push(entry.title);
                 dateArray.push(entry.pubDate);

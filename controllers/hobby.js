@@ -1,45 +1,74 @@
 var express = require('express'),
+    db      = require('../models'),
     router  = express.Router();
 
 router.get('/all', function(req, res){
-    res.render('hobby/index');
+
+    db.hobby.all().then(function(hobbies){
+        res.render('hobby/index', {hobbies: hobbies})
+    });
 });
 
 router.get('/:hobby', function(req, res){
-   var hobby = req.params.hobby;
+   var hobby = req.params.hobby.toLocaleLowerCase();
 
     //TODO:Capitalize hobby first letter
 
-    var fullHobby = {
-        name: hobby,
-        shortDesc:'Short description',
-        time: 0,
-        transport: 0,
-        solo: true,
-        category: 'adrenaline',
-        quotes: '"Cronut chia street art gastropub, letterpress chambray affogato put a bird on it keytar. Church-key' +
-        ' keytar blog, everyday carry sriracha +1 viral microdosing. Authentic franzen kinfolk tousled wolf paleo."' +
-        ' - Somebody',
-        link: 'https://i.ytimg.com/vi/61aM0DXpKkc/maxresdefault.jpg'
-    };
+    db.hobby.find({
+        where: {
+            name: hobby
+        }
+    }).then(function(hobby){
+        var skis = {
+            name: 'Skis',
+            price: 343
+        };
 
-    var skis = {
-        name: 'Skis',
-        price: 343
-    };
+        var boots = {
+            name: 'boots',
+            price: 34
+        };
 
-    var boots = {
-        name: 'boots',
-        price: 34
-    };
+        var poles = {
+            name: 'poles',
+            price: 34
+        };
+        var equipment = [skis, boots, poles];
+        if(hobby){
+            res.render('hobby/show', {fullHobby: hobby, equipment: equipment});
+        } else {
+            req.flash('danger', 'Hobby not found!');
+            res.redirect('/')
+        }
+    })
+});
 
-    var poles = {
-        name: 'poles',
-        price: 34
-    };
-    var equipment = [skis, boots, poles];
+router.post('/:hobby/follow', function(req, res){
+    var hobbyId = parseInt(req.body.followID);
+    console.log(hobbyId);
 
-    res.render('hobby/show', {fullHobby: fullHobby, equipment: equipment});
+    db.hobby.findById(hobbyId).then(function(hobby){
+        if(hobby){
+            db.member.find({
+                where: {
+                    id: req.session.currentUser.id
+                }
+            }).then(function(member){
+                if(member){
+                    hobby.addMember(member, {active: true, skill_level: 20, interest: 20, scraperlink: 'asdf'}).then(function(){
+                        req.flash('success', hobby.name + ' has been added to your account');
+                        res.redirect(req.session.lastPage);
+                    });
+                } else {
+                    req.flash('danger', 'Database error: member not found');
+                    res.redirect(req.session.lastPage)
+                }
+            })
+        } else {
+            req.flash('danger', 'Database error: hobby not found');
+            res.redirect(req.session.lastPage);
+        }
+    });
 });
 
 module.exports = router;

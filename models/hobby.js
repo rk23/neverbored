@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.hobby.hasMany(models.member);
+        models.hobby.belongsToMany(models.member, {through: 'membersHobbys'});
       }
     }
   });

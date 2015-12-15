@@ -29,6 +29,13 @@ app.use(flash());
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.session.currentUser;
+    res.locals.alerts = req.flash();
+    next();
+});
+
+app.use(function(req, res, next){
+    req.session.lastPage = req.header('Referer');
+    res.locals.lastPage = req.session.lastPage;
     next();
 });
 
