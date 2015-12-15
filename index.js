@@ -1,4 +1,7 @@
 var express     = require('express'),
+    db          = require('./models'),
+    session     = require('express-session'),
+    flash       = require('connect-flash'),
     bodyParser  = require('body-parser'),
     authCtrl    = require('./controllers/auth'),
     homeCtrl    = require('./controllers/home'),
@@ -10,7 +13,6 @@ var express     = require('express'),
     memberCtrl  = require('./controllers/member'),
     feedCtrl    = require('./controllers/feed'),
     searchCtrl    = require('./controllers/search'),
-    session     = require('express-session'),
     request     = require('request'),
     app         = express();
 
@@ -23,6 +25,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
+app.use(flash());
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.session.currentUser;
