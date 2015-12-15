@@ -11,13 +11,15 @@ router.get('/', function(req, res){
 
 router.get('/following', function(req, res){
 
-    db.member.getHobbys().then(function(hobbies){
-        if(hobbies){
-            res.render('member/hobbies', {hobbies: hobbies})
-        } else {
-            req.flash('danger', 'Hobbies couldn\'t get got');
-            res.redirect(req.session.lastPage);
-        }
+    db.member.findById(req.session.currentUser.id).then(function(member){
+       member.getHobbies().then(function(hobbies){
+           if(hobbies){
+               res.render('member/hobbies', {hobbies: hobbies})
+           } else {
+               req.flash('danger', 'Hobbies couldn\'t get got');
+               res.redirect(req.session.lastPage);
+           }
+       })
     });
 
 });
