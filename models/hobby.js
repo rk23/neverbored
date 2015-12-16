@@ -14,6 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.hobby.belongsToMany(models.member, {through: 'membersHobbys'});
+        models.hobby.belongsToMany(models.gear, {through: 'hobbyGear'});
       }
     }
   });

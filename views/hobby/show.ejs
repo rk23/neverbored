@@ -4,49 +4,17 @@
         <div class="hobby-header">
             <div class="header-overlay">
                 <h1><%=fullHobby.name%></h1>
-                <p><%=fullHobby.shortDesc%></p>
+                <p><%=fullHobby.short_desc%></p>
             </div>
             <img src="<%=fullHobby.imglink%>" width="100%">
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-12 hobby-stats">
-                <div class="col-md-5 hobby-quote">
+            <div class="col-md-12 hobby-stats text-center">
+                <!--<div class="col-md-12 hobby-quote">-->
                     <p><%=fullHobby.quote%></p>
-                </div>
-                <div class="col-md-2 hobby-stats-short">
-                    <ul>
-                        <li>Time: <%=fullHobby.time%></li>
-                        <li>Transport: <%=fullHobby.transport%></li>
-                        <li>Solo: <%=fullHobby.solo%></li>
-                    </ul>
-                </div>
-                <div class="col-md-5 hobby-equipment">
-                    <table class="table table-striped" id="hobby-equipment">
-                        <tr>
-                            <th>Name</th>
-                            <th>Cost</th>
-                        </tr>
-                        <% var i = 1, total = 0; equipment.forEach(function(equipment){ total += equipment.price%>
-                        <tr>
-                            <td>
-                                <a href="#"><%=equipment.name%></a>
-                            </td>
-                            <td>
-                                $<%=equipment.price%>
-                            </td>
-                        </tr>
-                        <%i++;})%>
-                        <tr>
-                            <td>
-                                <strong>Total</strong>
-                            </td>
-                            <td>
-                                $<%=total%>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
+                <!--</div>-->
+
             </div>
         </div>
         <article class="hobby-text-article">
@@ -82,6 +50,46 @@
         </article>
     </div>
     <div class="col-md-3 indiv-hobby-feed">
+        <div class="row">
+            <div class="col-md-12 hobby-equipment">
+                <h3>Necessary Gear</h3>
+                <table class="table table-striped" id="hobby-equipment">
+                    <tr>
+                        <th>Name</th>
+                        <th>Cost</th>
+                    </tr>
+                    <% var i = 1, total = 0; equipment.forEach(function(equipment){ total += equipment.price%>
+                    <tr>
+                        <td>
+                            <a href="#"><%=equipment.name%></a>
+                        </td>
+                        <td>
+                            $<%=equipment.price%>
+                        </td>
+                    </tr>
+                    <%i++;})%>
+                    <tr>
+                        <td>
+                            <strong>Total</strong>
+                        </td>
+                        <td>
+                            $<%=total%>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 hobby-stats-short">
+                <h3>Other Stats</h3>
+                <ul>
+                    <li>Time: <%=fullHobby.time%></li>
+                    <li>Transport: <%=fullHobby.transport%></li>
+                    <li>Solo: <%=fullHobby.solo%></li>
+                </ul>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-md-8">
                 <h3>Feed</h3>

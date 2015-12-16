@@ -9,7 +9,7 @@ var express     = require('express'),
     snowboarder  = require('./scrapers/snowboarder'),
     rss          = require('./scrapers/rssfeeds'),
     hobbyCtrl   = require('./controllers/hobby'),
-    equipmentCtrl   = require('./controllers/equipment'),
+    gearCtrl   = require('./controllers/gear'),
     memberCtrl  = require('./controllers/member'),
     feedCtrl    = require('./controllers/feed'),
     searchCtrl    = require('./controllers/search'),
@@ -45,7 +45,7 @@ app.use('/craigslist', craigslist);
 app.use('/snowboarder', snowboarder);
 app.use('/rss', rss);
 app.use('/h', hobbyCtrl);
-app.use('/e', equipmentCtrl);
+app.use('/g', gearCtrl);
 app.use('/m', memberCtrl);
 app.use('/f', feedCtrl);
 app.use('/search', searchCtrl);

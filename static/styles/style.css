@@ -131,7 +131,7 @@ ul {
 }
 
 .hobby-header{
-    height: 200px;
+    height: 470px;
     overflow: scroll;
 }
 
@@ -141,7 +141,8 @@ ul {
 
 .header-overlay {
     position: absolute;
-    padding-left: 15px;
+    top: 50px;
+    padding: 15px;
     background-color: rgba(0,0,0,.5);
     color: white;
     width: 80%;
@@ -174,6 +175,11 @@ ul {
 .hobby-equipment {
     height: 100%;
     overflow: scroll;
+}
+
+.gear-view {
+    width: 50%;
+    margin: 0 auto;
 }
 
 #search{
