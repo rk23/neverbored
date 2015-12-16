@@ -11,6 +11,8 @@ router.get('/', function(req, res){
 
 router.get('/following', function(req, res){
 
+    if(!req.session.currentUser) res.render('notloggedin');
+
     db.member.findById(req.session.currentUser.id).then(function(member){
        member.getHobbies().then(function(hobbies){
            if(hobbies){

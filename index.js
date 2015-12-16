@@ -36,6 +36,7 @@ app.use(function(req, res, next){
 app.use(function(req, res, next){
     req.session.lastPage = req.header('Referer');
     res.locals.lastPage = req.session.lastPage;
+    if(req.session.currentUser) res.locals.userImage = req.session.currentUser.imgLink;
     next();
 });
 

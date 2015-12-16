@@ -24,6 +24,9 @@ router.post('/add', function(req, res){
 });
 
 router.get('/:member', function(req, res){
+
+    if(!req.session.currentUser) res.render('notloggedin');
+
     var memberName = req.params.member;
 
     db.member.findById(req.session.currentUser.id).then(function(member){

@@ -1,5 +1,9 @@
 <%include ../partials/header.ejs%>
 
+<% console.log(currentUser); if (!currentUser){%>
+<%include ../partials/loginpls.ejs%>
+<%} else {%>
+
 <div class="gear-view">
 <form method="post" action="/g/add">
     <input type="text" name="gearName" placeholder="E.g. snowboard">
@@ -25,5 +29,7 @@
 </table>
 
 </div>
+
+<%}%>
 
 <%include ../partials/footer.ejs%>

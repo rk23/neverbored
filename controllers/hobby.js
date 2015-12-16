@@ -44,6 +44,9 @@ router.get('/:hobby', function(req, res){
 });
 
 router.post('/:hobby/follow', function(req, res){
+
+    if(!req.session.currentUser) res.render('notloggedin');
+
     var hobbyId = parseInt(req.body.followID);
     console.log(hobbyId);
 

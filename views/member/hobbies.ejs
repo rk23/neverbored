@@ -1,4 +1,9 @@
 <%include ../partials/header.ejs%>
+
+<%if (!currentUser){%>
+<%include ../partials/loginpls.ejs%>
+<%} else {%>
+
 <table class="table table-striped" id="member-hobby-list">
     <tr>
         <th>#</th>
@@ -37,4 +42,6 @@
     <%i++;})%>
 
 </table>
+
+<%}%>
 <%include ../partials/footer.ejs%>
