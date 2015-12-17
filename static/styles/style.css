@@ -1,6 +1,6 @@
 body {
     font-family: Helvetica;
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,.1);
 }
 
 .home-page {
@@ -77,11 +77,9 @@ ul {
 }
 
 .navbar {
-    /*background-color: #1D2F3D;*/
-    /*border-color: #1D2F3D;    */
-    background-color: rgba(255,255,255,.8);
-    border-radius: 5px;
-    border-color: rgba(0,0,0,0);
+    background-color: #1D2F3D;
+    border-color: #1D2F3D;
+    border-radius: 0px;
 }
 
 .status-bar{
