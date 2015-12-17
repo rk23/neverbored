@@ -10,7 +10,7 @@ router.get('/all', function(req, res){
 });
 
 router.get('/:hobby', function(req, res){
-   var hobby = req.params.hobby.toLocaleLowerCase();
+   var hobby = req.params.hobby.toLowerCase();
 
     //TODO:Capitalize hobby first letter
 

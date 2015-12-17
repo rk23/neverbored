@@ -22,7 +22,6 @@ router.get('/', function(req, res){
             links.push(hobby.scraperlink);
         })
     }).then(function(){
-        console.log(links);
         var getStuff = function(url, cb) {
             var linkArray = [],
                 textArray = [],

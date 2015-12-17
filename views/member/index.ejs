@@ -1,3 +1,19 @@
 <%include ../partials/header.ejs%>
-member home
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+            </tr>
+            <%members.forEach(function(member){ %>
+            <tr>
+                <td>
+                    <a href="/m/<%=member.id%>"><%=member.first_name + ' ' + member.last_name%></a>
+                </td>
+            </tr>
+            <%})%>
+
+        </table>
+    </div>
+</div>
 <%include ../partials/footer.ejs%>

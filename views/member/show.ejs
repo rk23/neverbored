@@ -1,0 +1,29 @@
+<%include ../partials/header.ejs%>
+<div class="row">
+    <section class="col-md-4">
+        <div class="mn-image text-center">
+            <img src="<%=userImage%>" width="50%">
+            <h2><%=memberName%></h2>
+            <p>Followers: 1</p>
+        </div>
+        <hr>
+    </section>
+    <section class="col-md-8">
+        <table class="table table-striped" id="member-hobby-list">
+            <tr>
+                <th>Name</th>
+            </tr>
+
+            <%hobbies.forEach(function(hobby){ %>
+            <tr>
+                <td>
+                    <a href="/h/<%=hobby.name%>"><%=hobby.name%></a>
+                </td>
+            </tr>
+            <%})%>
+
+        </table>
+    </section>
+</div>
+
+<%include ../partials/footer.ejs%>

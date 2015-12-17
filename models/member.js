@@ -15,6 +15,37 @@ module.exports = function(sequelize, DataTypes) {
             // associations can be defined here
             models.member.belongsToMany(models.hobby, {through: 'membersHobbys'});
             models.member.belongsToMany(models.gear, {through: 'membersGears'});
+            models.member.belongsToMany(models.gear, {
+                through: {
+                    model: 'membersGear',
+                    unique: false,
+                    scope: {
+                        forSale: true
+                    }
+                },
+                as: 'gearForSale'
+            });
+            models.member.belongsToMany(models.gear, {
+                through: {
+                    model: 'membersGear',
+                    unique: false,
+                    scope: {
+                        wanted: true
+                    }
+                },
+                as: 'gearWanted'
+            });
+            models.member.belongsToMany(models.gear, {
+                through: {
+                    model: 'membersGear',
+                    unique: false,
+                    scope: {
+                        wanted: false,
+                        forSale: false
+                    }
+                },
+                as: 'ownedGear'
+            });
         }
     },
         hooks: {

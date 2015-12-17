@@ -15,24 +15,35 @@ router.post('/add', function(req, res){
         value: req.body.gearValue
     }
 
+    var forSale = false;
+    var isWanted = false;
+
+    if(req.body.forSale === '1') {
+        forSale = true;
+    } else if (req.body.forSale === '2') {
+        isWanted = true;
+    }
+
     db.gear.create(newGear).then(function(gear){
-           gear.addMember(req.session.currentUser.id, {wanted: false, forSale: false, hobbyId: 2}).then(function(something){
-               req.flash('success','Gear added');
+           gear.addMember(req.session.currentUser.id, {wanted: isWanted, forSale: forSale, hobbyId: 2}).then(function(){
+               req.flash('success','Gear added: ' + gear.name);
                res.redirect(req.session.lastPage);
            })
     });
 });
 
-router.get('/:member', function(req, res){
+router.get('/mygear', function(req, res){
 
     if(!req.session.currentUser) res.render('notloggedin');
 
-    var memberName = req.params.member;
-
     db.member.findById(req.session.currentUser.id).then(function(member){
-        member.getGears().then(function(g){
-            res.render('gear/show', {gears: g});
-        })
+        member.getOwnedGear().then(function(ownedGear){
+            member.getGearForSale().then(function(forSale){
+                member.getGearWanted().then(function(wanted){
+                    res.render('gear/show', {ownedGear: ownedGear, forSale: forSale, wanted: wanted});
+                })
+            })
+        });
     });
 
 });

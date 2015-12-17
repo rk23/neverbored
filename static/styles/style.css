@@ -1,25 +1,32 @@
 body {
     font-family: Helvetica;
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0,0,0,.8);
 }
 
 .home-page {
     height: 100vh;
-    background-image: url(https://i.ytimg.com/vi/_wC0WT4DPBU/maxresdefault.jpg);
+    background-image: url(http://judykundert.com/wp-content/uploads/2015/07/camping2.jpg);
     background-size: cover;
-    margin-top: -20px;
+    /*margin-top: -72px;*/
 }
 .sign-up{
-    background-color: rgba(255,255,255,.8);
+    /*background-color: rgba(255,255,255,.8);*/
+    color: white;
     border-radius: 10px;
     padding: 15px;
-    margin-top: 40px;
+    margin-top: 10vh;
+}
+
+.login-home {
+    margin: 10px 10px;
+    position: absolute;
+    right: 0;
 }
 
 footer {
     margin-top: 20px;
     background-color: #1D2F3D;
-    height: 100px;
+    height: 20px;
     color: white;
     padding: 20px;
 }
@@ -70,9 +77,11 @@ ul {
 }
 
 .navbar {
-    background-color: #1D2F3D;
-    border-color: #1D2F3D;
-    border-radius: 0;
+    /*background-color: #1D2F3D;*/
+    /*border-color: #1D2F3D;    */
+    background-color: rgba(255,255,255,.8);
+    border-radius: 5px;
+    border-color: rgba(0,0,0,0);
 }
 
 .status-bar{
@@ -172,6 +181,10 @@ ul {
     width: 75%;
 }
 
+.alerts-container {
+    /*position: absolute;*/
+}
+
 .hobby-equipment {
     height: 100%;
     overflow: scroll;
@@ -183,7 +196,7 @@ ul {
 }
 
 #search{
-    width: 200%;
+    width: 300%;
 }
 
 #feed-follow {
