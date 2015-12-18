@@ -1,19 +1,30 @@
 <%include ../partials/header.ejs%>
+
 <div class="row balance-navbar">
     <div class="col-md-6 col-md-offset-3">
-        <table class="table table-striped">
-            <tr>
-                <th>Name</th>
-            </tr>
-            <%members.forEach(function(member){ %>
-            <tr>
-                <td>
-                    <a href="/m/<%=member.id%>"><%=member.first_name + ' ' + member.last_name%></a>
-                </td>
-            </tr>
-            <%})%>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="text-center">
+                    <h2>Members</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                    <%members.forEach(function(member){ %>
+                    <tr>
+                        <td>
+                            <a href="/m/<%=member.id%>"><%=member.first_name + ' ' + member.last_name%></a>
+                        </td>
+                    </tr>
+                    <%})%>
 
-        </table>
+                </table>
+            </div>
+        </div>
+
     </div>
 </div>
-<%include ../partials/footer.ejs%>
+<%include ../partials/sticky-footer.ejs%>

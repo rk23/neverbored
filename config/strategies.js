@@ -37,7 +37,6 @@ module.exports = {
             profileFields: ['email', 'displayName', 'picture.type(large)']
         },
         function(accessToken, refreshToken, profile, done) {
-            console.log('made it before find')
             db.provider.find({
                 where: {
                     pid: profile.id,

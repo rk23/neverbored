@@ -8,14 +8,11 @@ router.get('/', function(req, res){
 
     db.member.findById(req.user.id).then(function(member){
         member.getGearWanted().then(function(gearWanted){
-            //var gearWantedNames = [];
 
             var url = 'https://seattle.craigslist.org/search/sss?query=';
 
             gearWanted.forEach(function(gear){
-                //gearWantedNames.push(gear.name);
                 url += gear.name + '|';
-                console.log(url);
             })
 
             request(url, function(err, response, html){

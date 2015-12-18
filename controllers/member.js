@@ -13,7 +13,7 @@ router.get('/all', function(req, res){
 });
 
 router.get('/following', function(req, res){
-    if(req.session.currentUser === undefined) {
+    if(req.user === undefined) {
         res.render('notloggedin');
         return;
     }

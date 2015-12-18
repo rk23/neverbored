@@ -1,11 +1,15 @@
 body {
     font-family: Helvetica;
-    background-color: rgba(0,0,0,.1);
+    background-color: white;
     font-weight: 100;
+    background-image: url(../images/camping2.png);
+    height: 100vh;
+    background-size: cover;
 }
 
 table {
     border: 1px solid lightgrey;
+    background-color: lightgrey;
 }
 
 .balance-navbar {
@@ -14,16 +18,14 @@ table {
 
 .home-page {
     height: 100vh;
-    background-image: url(http://judykundert.com/wp-content/uploads/2015/07/camping2.jpg);
+    background-image: url(../images/camping2.png);
     background-size: cover;
-    /*margin-top: -72px;*/
 }
 
 .page-404{
     height: 100vh;
     background-image: url(https://i.ytimg.com/vi/oVnAVcbMoSM/maxresdefault.jpg);
     background-size: cover;
-    /*margin-top: -88px;*/
     margin-bottom: -120px;
 }
 
@@ -52,12 +54,28 @@ table {
 }
 
 footer {
-    margin-top: 80px;
+    /*margin-top: 40px;*/
     /*background-color: #1D2F3D;*/
-    background-color: rgba(0,0,0,1);
-    height: 180px;
+    background-color: white;
+    height: 40px;
+}
+
+.sticky {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-right {
+    padding: 10px;
     color: white;
+}
+
+.footer-left {
     padding: 20px;
+    background-color: black;
+    height: 40px;
+    color: black;
 }
 
 hr {
@@ -79,12 +97,15 @@ ul {
     text-align: left;
 }
 
-.feed-article {
-    background-color: white;
-    text-align: left;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 2px;
+.feed-article .panel-default {
+    border: 0px solid lightgrey;
+}
+
+.feed-article .panel-body {
+    padding: 0px;
+}
+.feed-article .panel-heading {
+    font-weight: 800;
 }
 
 .feed-article a {
@@ -108,7 +129,7 @@ ul {
 .navbar {
     /*background-color: #1D2F3D;*/
     /*border-color: #1D2F3D;    */
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0,0,0,1);
     border-color: rgba(0,0,0,0);
     position: absolute;
     width: 100%;
@@ -126,12 +147,28 @@ ul {
     padding: 5px;
 }
 .main-feed{
-    border-right: 1px solid lightgrey;
+    /*border: 1px solid lightgrey;*/
+    overflow: scroll;
+    height: 87vh;
 }
 
 .main-nav {
     padding-left: 4%;
-    border-right: 1px solid lightgrey;
+    background-color: rgba(0,0,0,.8);
+    height: 100vh;
+    margin-top: -19px;
+}
+
+.main-nav a {
+    color: white;
+}
+
+.main-image {
+    margin-top: 20px;
+}
+
+#profile-picture {
+    border-radius: 5px;
 }
 
 .main-nav-list {
@@ -150,20 +187,20 @@ ul {
 
 .craigslist-scraper {
     background-color: white;
-    padding: 10px;
+    /*padding: 10px;*/
     margin-right: 4%;
     margin-left: 15px;
-    height: 250px;
+    height: 300px;
     overflow: scroll;
     width: 90%;
-    font-size: 12px;
+    font-size: 14px;
 }
 .weather-scraper {
     background-color: white;
-    padding: 10px;
+    /*padding: 10px;*/
     margin-right: 4%;
     margin-left: 15px;
-    height: 250px;
+    height: 300px;
     overflow: scroll;
     width: 90%;
     font-size: 12px;
@@ -217,7 +254,7 @@ ul {
 
 #hobby-list {
     margin: 0 auto;
-    width: 75%;
+    width: 50%;
 }
 
 .alerts-container {
@@ -240,12 +277,8 @@ ul {
     width: 300%;
 }
 
-#feed-follow {
-    margin-top: 20px;
-}
-
 #member-hobby-list {
-    width: 75%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -285,4 +318,24 @@ button#facebook a {
 #register-email {
     border-radius: 5px;
     padding: 10px;
+}
+
+#dashboard-followers {
+    color: white;
+    margin-top: 10px;
+}
+
+#refreshFeed {
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    margin: 0px 100px;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+}
+
+.footer-links a {
+    color: white;
 }

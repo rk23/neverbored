@@ -1,17 +1,17 @@
 <div class="row balance-navbar">
     <section class="col-md-2 main-nav">
-        <div class="mn-image text-center">
-            <img src="<%=currentUser.imgLink%>" class="img-circle" width="90%">
-            <p>Followers: 1</p>
+        <div class="main-image text-center">
+            <img src="<%=currentUser.imgLink%>"  id="profile-picture" width="90%">
+            <div id="dashboard-followers">
+                <p>Followers: 1</p>
+            </div>
         </div>
         <hr>
         <ul class="main-nav-list">
             <li><a href="/">Home</a></li>
             <li><a href="/h/all">Hobbies</a></li>
-            <li><a href="/h/recommend">Random article</a></li>
             <li><a href="/g/mygear">My Gear</a></li>
             <li><a href="/m/all">Members</a></li>
-            <li><a href="/members/recommend">Meet</a></li>
         </ul>
     </section>
     <section class="col-md-6 main-feed text-center">
@@ -20,24 +20,41 @@
             <!--<h4>Update status</h4>-->
         <!--</div>-->
         <!--<hr>-->
-        <script>$('#refreshFeed').trigger('click')</script>
-        <button type="button" id="refreshFeed">Refresh</button>
+        <button type="button" class="btn btn-success" id="refreshFeed">Refresh Feed</button>
         <div class="feed" id="feed">
         </div>
     </section>
     <section class="col-md-4 main-notif">
         <div class="row">
-            <section class="craigslist-scraper col-md-10" id="craigslist-scraper">
-                <h4><u>Craigslist Scraper</u></h4>
-                <button type="button" id="refreshCL">Refresh</button>
-                <div id="cl-links">
+            <section class="panel panel-default craigslist-scraper" id="craigslist-scraper">
+                <div class="panel-heading">
+                    <h4>Find Your Wanted Gear on Craigslist</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-info" id="refreshCL">Refresh</button>
+                    </div>
+                    <div id="cl-links">
+                    </div>
                 </div>
             </section>
+            <!--<section class="craigslist-scraper col-md-10" id="craigslist-scraper">-->
+                <!--<h4><u>Craigslist Scraper</u></h4>-->
+                <!--<button type="button" id="refreshCL">Refresh</button>-->
+                <!--<div id="cl-links">-->
+                <!--</div>-->
+            <!--</section>-->
         </div>
-        <hr>
         <div class="row">
-            <section class="weather-scraper col-md-10" id="weather-scraper">
-                <h4><u>Weather Scraper</u></h4>
+            <section class="weather-scraper panel panel-default" id="weather-scraper">
+                <div class="panel-heading">
+                    <h4>Weather Update</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="weather-api">
+
+                    </div>
+                </div>
             </section>
         </div>
     </section>

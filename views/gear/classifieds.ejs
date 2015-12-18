@@ -1,20 +1,33 @@
 <%include ../partials/header.ejs%>
 <div class="balance-navbar">
-    <table class="table table-striped gear-view" id="classifieds">
-        <tr>
-            <th>Name</th>
-            <th>Value</th>
-        </tr>
 
-        <%gearForSale.forEach(function(gear){%>
-        <tr>
-            <td>
-                <%=gear.name%>
-            </td>
-            <td>
-                $<%=gear.value%>
-            </td>
-       <%})%>
-    </table>
+    <div class="panel panel-default gear-view">
+        <div class="panel-heading">
+            <div class="text-center">
+                <h2>Classifieds</h2>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped" id="classifieds">
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+
+                <%gearForSale.forEach(function(gear){%>
+                <tr>
+                    <td>
+                        <%=gear.name%>
+                    </td>
+                    <td>
+                        $<%=gear.value%>
+                    </td>
+                    <%})%>
+            </table>
+        </div>
+    </div>
+
+
+
 </div>
-<%include ../partials/footer.ejs%>
+<%include ../partials/sticky-footer.ejs%>

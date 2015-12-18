@@ -4,114 +4,155 @@
     <div class="col-md-6 col-md-offset-2">
         <div class="row">
             <div class="col-md-12">
-                <div class="text-center">
-                    <h3>My Gear</h3>
-                </div>
-                <table class="table table-striped" id="gear-list">
-                    <tr>
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <h2>My Gear</h2>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped" id="gear-list">
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
 
-                    <%var total = 0; ownedGear.forEach(function(gear){ %>
-                    <tr>
-                        <td>
-                            <%=gear.name%>
-                        </td>
-                        <td>
-                            $<%=gear.value%>
-                        </td>
-                    </tr>
-                    <% total += gear.value; })%>
-                    <tr>
-                        <td>
-                            <strong>Total</strong>
-                        </td>
-                        <td>
-                            <strong>$<%=total%></strong>
-                        </td>
-                    </tr>
-                </table>
+                            <%var total = 0; ownedGear.forEach(function(gear){ %>
+                            <tr>
+                                <td>
+                                    <%=gear.name%>
+                                </td>
+                                <td>
+                                    $<%=gear.value%>
+                                </td>
+                            </tr>
+                            <% total += gear.value; })%>
+                            <tr>
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+                                <td>
+                                    <strong>$<%=total%></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="text-center">
-                    <h3>Wanted Gear</h3>
-                </div>
-                <table class="table table-striped" id="gear-list">
-                    <tr>
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <h3>Wanted Gear</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped" id="gear-list">
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
 
-                    <%var total = 0; wanted.forEach(function(gear){ %>
-                    <tr>
-                        <td>
-                            <%=gear.name%>
-                        </td>
-                        <td>
-                            $<%=gear.value%>
-                        </td>
-                    </tr>
-                    <% total += gear.value; })%>
-                    <tr>
-                        <td>
-                            <strong>Total</strong>
-                        </td>
-                        <td>
-                            <strong>$<%=total%></strong>
-                        </td>
-                    </tr>
-                </table>
+                            <%var total = 0; wanted.forEach(function(gear){ %>
+                            <tr>
+                                <td>
+                                    <%=gear.name%>
+                                </td>
+                                <td>
+                                    $<%=gear.value%>
+                                </td>
+                            </tr>
+                            <% total += gear.value; })%>
+                            <tr>
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+                                <td>
+                                    <strong>$<%=total%></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="text-center">
-                    <h3>My Gear for sale</h3>
-                </div>
-                <table class="table table-striped" id="gear-list">
-                    <tr>
-                        <th>Name</th>
-                        <th>Value</th>
-                    </tr>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="text-center">
+                            <h3>My Gear for sale</h3>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped" id="gear-list">
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                            </tr>
 
-                    <%var total = 0; forSale.forEach(function(gear){ %>
-                    <tr>
-                        <td>
-                            <%=gear.name%>
-                        </td>
-                        <td>
-                            $<%=gear.value%>
-                        </td>
-                    </tr>
-                    <% total += gear.value; })%>
-                    <tr>
-                        <td>
-                            <strong>Total</strong>
-                        </td>
-                        <td>
-                            <strong>$<%=total%></strong>
-                        </td>
-                    </tr>
-                </table>
+                            <%var total = 0; forSale.forEach(function(gear){ %>
+                            <tr>
+                                <td>
+                                    <%=gear.name%>
+                                </td>
+                                <td>
+                                    $<%=gear.value%>
+                                </td>
+                            </tr>
+                            <% total += gear.value; })%>
+                            <tr>
+                                <td>
+                                    <strong>Total</strong>
+                                </td>
+                                <td>
+                                    <strong>$<%=total%></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="col-md-3">
-        <form method="post" action="/g/add">
-            <input type="text" name="gearName" placeholder="E.g. snowboard">
-            <input type="number" name="gearValue" placeholder="E.g. $12.49">
-            <br>
-            <input type="radio" name="forSale" value="1"> For sale
-            <br>
-            <input type="radio" name="forSale" value="2"> Wanted
-            <br>
-            <input type="radio" name="forSale" value="0" checked> N/A
-            <br>
-            <input type="submit" value="Submit">
-        </form>
+        <div class="form-container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="text-right">
+                        <h2>Add Gear</h2>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form method="post" action="/g/add">
+                        <div class="form-group">
+                            <!--<label for="inputFirstName">First Name</label>-->
+                            <input type="text" class="form-control" name="gearName" placeholder="Gear Name">
+                        </div>
+                        <div class="form-group">
+                            <!--<label for="inputLastName">Last Name</label>-->
+                            <input type="text" class="form-control" name="gearValue" placeholder="Gear Value">
+                        </div>
+                        <div class="text-right">
+                            <input type="radio" name="forSale" value="1"> For sale
+                            <br>
+                            <input type="radio" name="forSale" value="2"> Wanted
+                            <br>
+                            <input type="radio" name="forSale" value="0" checked> N/A
+                            <br>
+                            <br>
+                            <input type="submit" class="btn btn-success" value="Submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
 </div>
 

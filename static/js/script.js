@@ -43,6 +43,9 @@ $(function(){
 
     $('#refreshFeed').on('click', function(e){
         e.preventDefault();
+        console.log('made it')
+        setTimeout(function(){}, 2000);
+        console.log('made it')
 
         $.ajax({
             url: '/rss',
@@ -52,6 +55,12 @@ $(function(){
                 $.each(data, function(i, website){
                     for (var j = 0; j < website.links.length; j++){
                         var article = $('<article>'),
+                            panel = $('<div/>').addClass('panel panel-default'),
+                            panelHead = $('<div/>',{
+                                href: website.links[j],
+                                html: website.headlines[j]
+                            } ).addClass('panel-heading'),
+                            panelBody = $('<div/>').addClass('panel-body'),
                             pTag = $('<p/>'),
                             aTag = $('<a/>', {
                                 href: website.links[j],
@@ -61,8 +70,9 @@ $(function(){
                             img = $('<img/>', {
                                 src: website.imgLinks[j]
                         });
-                        article.append(pTag.append(br).append(aTag).append(img)).addClass('feed-article');
-                        $('#feed').append(article);
+                        //article.append(pTag.append(br).append(aTag).append(img)).addClass('feed-article');
+                        panel.append(panelHead).append(panelBody.append(img)).addClass('feed-article');
+                        $('#feed').append(panel);
                     }
                 })
             }
