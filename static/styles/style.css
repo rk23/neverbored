@@ -2,7 +2,7 @@ body {
     font-family: Helvetica;
     background-color: white;
     font-weight: 100;
-    background-image: url(../images/camping2.png);
+    background-image: url(http://i.imgur.com/4AX3e0y.jpg);
     height: 100vh;
     background-size: cover;
 }
@@ -18,7 +18,7 @@ table {
 
 .home-page {
     height: 100vh;
-    background-image: url(../images/camping2.png);
+    background-image: url(http://i.imgur.com/4AX3e0y.jpg);
     background-size: cover;
 }
 
@@ -210,6 +210,10 @@ ul {
     /*margin-left: 4%;*/
     border-right: 1px solid lightgrey;
     overflow: scroll;
+}
+
+.hobby-show-background {
+    background-color: white;
 }
 
 .hobby-header{
