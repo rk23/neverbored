@@ -33,7 +33,7 @@ router.post('/add', function(req, res){
     }
 
     db.gear.create(newGear).then(function(gear){
-           gear.addMember(req.session.currentUser.id, {wanted: isWanted, forSale: forSale, hobbyId: 2}).then(function(){
+           gear.addMember(req.user.id, {wanted: isWanted, forSale: forSale, hobbyId: 2}).then(function(){
                req.flash('success','Gear added: ' + gear.name);
                res.redirect(req.session.lastPage);
            })
@@ -41,11 +41,11 @@ router.post('/add', function(req, res){
 });
 
 router.get('/mygear', function(req, res){
-    if(req.session.currentUser === undefined) {
+    if(req.user === undefined) {
         res.render('notloggedin');
         return;
     }
-    db.member.findById(req.session.currentUser.id).then(function(member){
+    db.member.findById(req.user.id).then(function(member){
         member.getOwnedGear().then(function(ownedGear){
             member.getGearForSale().then(function(forSale){
                 member.getGearWanted().then(function(wanted){

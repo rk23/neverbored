@@ -22,14 +22,14 @@ router.get('/following', function(req, res){
 router.get('/:memberId', function(req, res){
     var memberId = parseInt(req.params.memberId);
 
-    if(!req.session.currentUser) {
+    if(!req.user) {
         db.member.findById(memberId).then(function(member){
             member.getHobbies().then(function(hobbies){
                 res.render('member/show', {userImage: member.imgLink, memberName: member.first_name + ' ' + member.last_name, hobbies: hobbies});
             })
         })
     } else {
-        db.member.findById(req.session.currentUser.id).then(function(loggedInMember){
+        db.member.findById(req.user.id).then(function(loggedInMember){
             db.member.findById(memberId).then(function(member){
                 member.getHobbies().then(function(theirHobbies){
                     loggedInMember.getHobbies().then(function(myHobbies){

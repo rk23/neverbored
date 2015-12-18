@@ -12,14 +12,31 @@
 </head>
 
 <body>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '621882507952031',
+            xfbml      : true,
+            version    : 'v2.5'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <form class="form-inline login-home" method="post" action="/auth/login">
     <div class="form-group">
         <!--<label for="loginEmail">Email</label>-->
-        <input type="email" class="form-control" name="loginEmail" id="loginEmail" placeholder="Email">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
     </div>
     <div class="form-group">
         <!--<label for="loginPassword">Password</label>-->
-        <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="********">
+        <input type="password" class="form-control" id="password" name="password" placeholder="********">
     </div>
     <button type="submit" class="btn btn-success">Login</button>
 </form>

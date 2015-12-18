@@ -6,20 +6,22 @@ var express     = require('express'),
     authCtrl    = require('./controllers/auth'),
     homeCtrl    = require('./controllers/home'),
     craigslist  = require('./scrapers/craigslist'),
-    snowboarder  = require('./scrapers/snowboarder'),
-    rss          = require('./scrapers/rssfeeds'),
+    snowboarder = require('./scrapers/snowboarder'),
+    rss         = require('./scrapers/rssfeeds'),
     hobbyCtrl   = require('./controllers/hobby'),
-    gearCtrl   = require('./controllers/gear'),
+    gearCtrl    = require('./controllers/gear'),
     memberCtrl  = require('./controllers/member'),
     feedCtrl    = require('./controllers/feed'),
-    searchCtrl    = require('./controllers/search'),
+    searchCtrl  = require('./controllers/search'),
+    passport    = require('passport'),
+    LocalStrategy = require('passport-local').Strategy,
+    strategies  = require('./config/strategies'),
     request     = require('request'),
     app         = express();
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/static'));
-
 app.use(session({
     secret: 'this is a secret',
     resave: false,
@@ -27,8 +29,17 @@ app.use(session({
 }));
 app.use(flash());
 
-app.use(function(req, res, next){
-    res.locals.currentUser = req.session.currentUser;
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser(strategies.serializeUser);
+passport.deserializeUser(strategies.deserializeUser);
+
+passport.use(strategies.localStrategy);
+passport.use(strategies.facebookStrategy);
+
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
     res.locals.alerts = req.flash();
     next();
 });
@@ -36,7 +47,6 @@ app.use(function(req, res, next){
 app.use(function(req, res, next){
     req.session.lastPage = req.header('Referer');
     res.locals.lastPage = req.session.lastPage;
-    if(req.session.currentUser) res.locals.userImage = req.session.currentUser.imgLink;
     next();
 });
 

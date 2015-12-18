@@ -6,7 +6,7 @@ var express = require('express'),
 
 router.get('/', function(req, res){
 
-    db.member.findById(req.session.currentUser.id).then(function(member){
+    db.member.findById(req.user.id).then(function(member){
         member.getGearWanted().then(function(gearWanted){
             //var gearWantedNames = [];
 

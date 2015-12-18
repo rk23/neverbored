@@ -55,7 +55,7 @@ footer {
     margin-top: 80px;
     /*background-color: #1D2F3D;*/
     background-color: rgba(0,0,0,1);
-    height: 200px;
+    height: 180px;
     color: white;
     padding: 20px;
 }
@@ -266,4 +266,23 @@ blockquote:before {
 }
 blockquote p {
     display: inline;
+}
+
+button#facebook {
+    margin-top: 10px;
+    border-color: #2d5073;
+    background-color: #3b5998;
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+}
+
+button#facebook a {
+    color: white;
+    text-decoration: none;
+}
+
+#register-email {
+    border-radius: 5px;
+    padding: 10px;
 }

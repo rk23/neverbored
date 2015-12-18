@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
         associate: function (models) {
             // associations can be defined here
+            models.member.hasMany(models.provider);
             models.member.belongsToMany(models.hobby, {through: 'membersHobbys'});
             models.member.belongsToMany(models.gear, {through: 'membersGears'});
             models.member.belongsToMany(models.gear, {
@@ -46,7 +47,15 @@ module.exports = function(sequelize, DataTypes) {
                 as: 'ownedGear'
             });
         }
-    },
+    },instanceMethods: {
+            checkPassword: function(password, callback) {
+                if(password && this.password){
+                    bcrypt.compare(password, this.password, callback);
+                } else {
+                    callback(null, false);
+                }
+            }
+        },
         hooks: {
             beforeCreate: function(member, o, cb) {
                 bcrypt.hash(member.password, 1, function(err, hash) {

@@ -23,11 +23,12 @@ router.get('/all', function(req, res){
 
 router.get('/following', function(req, res){
 
-    if(req.session.currentUser === undefined) {
+    if(req.user === undefined) {
         res.render('notloggedin');
         return;
     }
-    db.member.findById(req.session.currentUser.id).then(function(member){
+    
+    db.member.findById(req.user.id).then(function(member){
         member.getHobbies().then(function(hobbies){
             if(hobbies){
                 res.render('member/hobbies', {hobbies: hobbies})
@@ -42,7 +43,7 @@ router.get('/following', function(req, res){
 router.delete('/following', function(req, res){
     var hobbyId = req.body.hobbyId;
 
-    db.member.findById(req.session.currentUser.id).then(function(member){
+    db.member.findById(req.user.id).then(function(member){
         member.removeHobby(hobbyId).then(function(){
             req.flash('success', 'Hobby removed from favorites');
             res.sendStatus(200);
@@ -76,7 +77,7 @@ router.get('/:hobby', function(req, res){
 
 router.post('/:hobby/follow', function(req, res){
 
-    if(req.session.currentUser === undefined) {
+    if(req.user === undefined) {
         res.render('notloggedin');
         return;
     }
@@ -87,7 +88,7 @@ router.post('/:hobby/follow', function(req, res){
         if(hobby){
             db.member.find({
                 where: {
-                    id: req.session.currentUser.id
+                    id: req.user.id
                 }
             }).then(function(member){
                 if(member){

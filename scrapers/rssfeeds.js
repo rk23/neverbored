@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 
     db.member.find({
         where: {
-            id: req.session.currentUser.id
+            id: req.user.id
         }
     }).then(function(member){
         member.getHobbies().then(function(hobbies){
@@ -26,7 +26,10 @@ router.get('/', function(req, res){
                     imgArray = [];
 
                 parser.parseURL(url, function(err, parsed) {
-                    if(err) console.log(err);
+                    if(parsed === undefined) {
+                        cb(null, null);
+                        return;
+                    }
                     parsed.feed.entries.forEach(function(entry, i) {
                         linkArray.push(entry.link);
                         textArray.push(entry.title);
