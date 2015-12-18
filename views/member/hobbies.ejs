@@ -1,5 +1,8 @@
 <%include ../partials/header.ejs%>
-
+<div class="balance-navbar">
+<div class="text-center">
+    <h2>Followed Hobbies</h2>
+</div>
 <table class="table table-striped" id="member-hobby-list">
     <tr>
         <th>#</th>
@@ -8,7 +11,7 @@
         <th>Time Commitment</th>
         <th>Solo</th>
         <th>Travel Required</th>
-        <th>Followers</th>
+        <th></th>
     </tr>
 
     <% var i = 1; hobbies.forEach(function(hobby){ %>
@@ -26,17 +29,30 @@
             <%=hobby.time%>
         </td>
         <td>
-            <%=hobby.solo%>
+            <%if(hobby.solo){ %>
+            <img src="/images/person.png" width="10%">
+            <%} else {%>
+            <img src="/images/people.png" width="10%">
+            <%}%>
         </td>
         <td>
-            <%=hobby.transport%>
+            <%if(hobby.transport){ %>
+            <img src="/images/car.png" width="10%">
+            <%} else {%>
+            <img src="/images/house.png" width="10%">
+            <%}%>
         </td>
         <td>
-            Followers
+            <form id="unfollowHobby">
+                <input type="hidden" name="hobbyId" id="hobbyId" value="<%=hobby.id%>">
+                <input type="submit" value="unfollow" id="unfollowHobbyInput">
+            </form>
         </td>
     </tr>
     <%i++;})%>
 
 </table>
+
+</div>
 
 <%include ../partials/footer.ejs%>

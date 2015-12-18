@@ -8,6 +8,16 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.gear.belongsToMany(models.member, {through: { model: 'membersGear'}});
+          models.gear.belongsToMany(models.member, {
+              through: {
+                  model: 'membersGear',
+                  unique: false,
+                  scope: {
+                      forSale: true
+                  }
+              },
+              as: 'forSale'
+          });
       }
     }
   });

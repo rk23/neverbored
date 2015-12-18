@@ -13,20 +13,10 @@ router.get('/all', function(req, res){
 });
 
 router.get('/following', function(req, res){
-
-    if(!req.session.currentUser) res.render('notloggedin');
-
-    db.member.findById(req.session.currentUser.id).then(function(member){
-       member.getHobbies().then(function(hobbies){
-           if(hobbies){
-               res.render('member/hobbies', {hobbies: hobbies})
-           } else {
-               req.flash('danger', 'Hobbies couldn\'t get got');
-               res.redirect(req.session.lastPage);
-           }
-       })
-    });
-
+    if(req.session.currentUser === undefined) {
+        res.render('notloggedin');
+        return;
+    }
 });
 
 router.get('/:memberId', function(req, res){

@@ -1,13 +1,54 @@
 var express = require('express'),
     db      = require('../models'),
+    async   = require('async'),
     router  = express.Router();
 
 router.get('/all', function(req, res){
-
     db.hobby.all().then(function(hobbies){
-        res.render('hobby/index', {hobbies: hobbies})
+
+        var getFollowerCount = function(hobby, cb){
+            hobby.countMembers().then(function(count){
+                hobby.followers = count;
+                cb(null, count)
+            })
+        }
+
+        async.concat(hobbies, getFollowerCount, function(err, result){
+            console.log(result);
+            res.render('hobby/index', {hobbies: hobbies})
+        })
+
     });
 });
+
+router.get('/following', function(req, res){
+
+    if(req.session.currentUser === undefined) {
+        res.render('notloggedin');
+        return;
+    }
+    db.member.findById(req.session.currentUser.id).then(function(member){
+        member.getHobbies().then(function(hobbies){
+            if(hobbies){
+                res.render('member/hobbies', {hobbies: hobbies})
+            } else {
+                req.flash('danger', 'Hobbies couldn\'t get got');
+                res.redirect(req.session.lastPage);
+            }
+        })
+    });
+});
+
+router.delete('/following', function(req, res){
+    var hobbyId = req.body.hobbyId;
+
+    db.member.findById(req.session.currentUser.id).then(function(member){
+        member.removeHobby(hobbyId).then(function(){
+            req.flash('success', 'Hobby removed from favorites');
+            res.sendStatus(200);
+        })
+    })
+})
 
 router.get('/:hobby', function(req, res){
    var hobby = req.params.hobby.toLowerCase();
@@ -19,34 +60,26 @@ router.get('/:hobby', function(req, res){
             name: hobby
         }
     }).then(function(hobby){
-        var skis = {
-            name: 'Skis',
-            price: 343
-        };
 
-        var boots = {
-            name: 'boots',
-            price: 34
-        };
+        hobby.getGears().then(function(gear){
+            if(hobby){
+                res.render('hobby/show', {fullHobby: hobby, gear: gear});
+            } else {
+                req.flash('danger', 'Hobby not found!');
+                res.redirect('/')
+            }
+        })
 
-        var poles = {
-            name: 'poles',
-            price: 34
-        };
-        var equipment = [skis, boots, poles];
-        if(hobby){
-            res.render('hobby/show', {fullHobby: hobby, equipment: equipment});
-        } else {
-            req.flash('danger', 'Hobby not found!');
-            res.redirect('/')
-        }
+
     })
 });
 
 router.post('/:hobby/follow', function(req, res){
 
-    if(!req.session.currentUser) res.render('notloggedin');
-
+    if(req.session.currentUser === undefined) {
+        res.render('notloggedin');
+        return;
+    }
     var hobbyId = parseInt(req.body.followID);
     console.log(hobbyId);
 

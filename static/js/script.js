@@ -1,7 +1,23 @@
 /**
  * Created by ReedK on 12/12/15.
  */
+
 $(function(){
+
+    $('#unfollowHobbyInput').on('click', function(e){
+        e.preventDefault();
+        var hobbyId = $('#hobbyId').attr('value');
+
+        $.ajax({
+            url:'/h/following',
+            type: 'DELETE',
+            data: {hobbyId: hobbyId},
+            success: function(data){
+                window.location.reload(true);
+            }
+        })
+    })
+
     $('#refreshCL').on('click', function(e){
         e.preventDefault();
 
@@ -36,9 +52,7 @@ $(function(){
                 $.each(data, function(i, website){
                     for (var j = 0; j < website.links.length; j++){
                         var article = $('<article>'),
-                            pTag = $('<p/>', {
-                                html: website.dates[j] + ' '
-                            }),
+                            pTag = $('<p/>'),
                             aTag = $('<a/>', {
                                 href: website.links[j],
                                 html: website.headlines[j]
@@ -56,4 +70,6 @@ $(function(){
     })
 
 
+
 });
+

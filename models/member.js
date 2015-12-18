@@ -41,7 +41,6 @@ module.exports = function(sequelize, DataTypes) {
                     unique: false,
                     scope: {
                         wanted: false,
-                        forSale: false
                     }
                 },
                 as: 'ownedGear'

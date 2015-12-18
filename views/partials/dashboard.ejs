@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row balance-navbar">
     <section class="col-md-2 main-nav">
         <div class="mn-image text-center">
             <img src="<%=userImage%>" class="img-circle" width="90%">
@@ -20,6 +20,7 @@
             <!--<h4>Update status</h4>-->
         <!--</div>-->
         <!--<hr>-->
+        <script>$('#refreshFeed').trigger('click')</script>
         <button type="button" id="refreshFeed">Refresh</button>
         <div class="feed" id="feed">
         </div>

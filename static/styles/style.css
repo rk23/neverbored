@@ -1,6 +1,15 @@
 body {
     font-family: Helvetica;
     background-color: rgba(0,0,0,.1);
+    font-weight: 100;
+}
+
+table {
+    border: 1px solid lightgrey;
+}
+
+.balance-navbar {
+    margin-top: 6%;
 }
 
 .home-page {
@@ -9,6 +18,25 @@ body {
     background-size: cover;
     /*margin-top: -72px;*/
 }
+
+.page-404{
+    height: 100vh;
+    background-image: url(https://i.ytimg.com/vi/oVnAVcbMoSM/maxresdefault.jpg);
+    background-size: cover;
+    /*margin-top: -88px;*/
+    margin-bottom: -120px;
+}
+
+.overlay-404 {
+    margin-top: 10%;
+    position: absolute;
+    padding: 15px;
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    width: 100%;
+}
+
+
 .sign-up{
     /*background-color: rgba(255,255,255,.8);*/
     color: white;
@@ -24,9 +52,10 @@ body {
 }
 
 footer {
-    margin-top: 20px;
-    background-color: #1D2F3D;
-    height: 20px;
+    margin-top: 80px;
+    /*background-color: #1D2F3D;*/
+    background-color: rgba(0,0,0,1);
+    height: 200px;
     color: white;
     padding: 20px;
 }
@@ -77,9 +106,18 @@ ul {
 }
 
 .navbar {
-    background-color: #1D2F3D;
-    border-color: #1D2F3D;
+    /*background-color: #1D2F3D;*/
+    /*border-color: #1D2F3D;    */
+    background-color: rgba(0,0,0,.8);
+    border-color: rgba(0,0,0,0);
+    position: absolute;
+    width: 100%;
     border-radius: 0px;
+    z-index: 10;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: ghostwhite;
 }
 
 .status-bar{
@@ -132,14 +170,15 @@ ul {
 }
 
 .hobby-article{
-    margin-left: 4%;
+    /*margin-left: 4%;*/
     border-right: 1px solid lightgrey;
     overflow: scroll;
 }
 
 .hobby-header{
-    height: 470px;
-    overflow: scroll;
+    height: 100vh;
+    overflow: hidden;
+    width: 101.5%;
 }
 
 .indiv-hobby-feed {
@@ -148,9 +187,9 @@ ul {
 
 .header-overlay {
     position: absolute;
-    top: 50px;
-    padding: 15px;
-    background-color: rgba(0,0,0,.5);
+    top: 25%;
+    padding: 15px 30px;
+    background-color: rgba(0,0,0,.6);
     color: white;
     width: 80%;
 }
@@ -161,8 +200,9 @@ ul {
 }
 
 .hobby-stats {
-    height: 120px;
+    height: 150px;
     border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
 }
 
 .hobby-stats-short {
@@ -171,7 +211,8 @@ ul {
 }
 
 .hobby-text-article {
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-left: 4%;
 }
 
 #hobby-list {
@@ -180,10 +221,12 @@ ul {
 }
 
 .alerts-container {
-    /*position: absolute;*/
+    margin-top: 50px;
+    z-index: 10;
+    position: absolute;
 }
 
-.hobby-equipment {
+#hobby-gear {
     height: 100%;
     overflow: scroll;
 }
@@ -204,4 +247,23 @@ ul {
 #member-hobby-list {
     width: 75%;
     margin: 0 auto;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
 }

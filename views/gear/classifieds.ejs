@@ -1,0 +1,20 @@
+<%include ../partials/header.ejs%>
+<div class="balance-navbar">
+    <table class="table table-striped gear-view" id="classifieds">
+        <tr>
+            <th>Name</th>
+            <th>Value</th>
+        </tr>
+
+        <%gearForSale.forEach(function(gear){%>
+        <tr>
+            <td>
+                <%=gear.name%>
+            </td>
+            <td>
+                $<%=gear.value%>
+            </td>
+       <%})%>
+    </table>
+</div>
+<%include ../partials/footer.ejs%>

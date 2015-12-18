@@ -8,7 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     transport: DataTypes.BOOLEAN,
     solo: DataTypes.BOOLEAN,
     quote: DataTypes.STRING,
-    imglink: DataTypes.STRING
+    imglink: DataTypes.STRING,
+    scraperlink: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
